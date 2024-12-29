@@ -1,0 +1,24 @@
+<div class="container mx-auto px-4 py-4">
+  <form [formGroup]="taskManagerForm">
+    <label class="form-control w-full max-w-xs" *ngIf="taskManagerForm.controls['taskTitle'] as taskTitle">
+      <div class="label">
+        <span class="label-text">Task Title</span>
+      </div>
+      <input type="text" placeholder="Enter task title" class="input input-bordered w-full max-w-xs" formControlName="taskTitle" maxlength="50" required />
+      <div class="label">
+        <span class="label-text-alt">{{ taskTitle.value.length }}/50 Characters</span>
+        <span class="label-text-alt text-rose-600" *ngIf="taskTitle.errors?.['required'] && taskTitle.touched">Task title is required</span>
+        <span class="label-text-alt text-rose-600" *ngIf="taskTitle.errors?.['maxlength'] && taskTitle.dirty">Max character length exceeded</span>
+      </div>
+    </label>
+    <label class="form-control w-full max-w-xs mt-4">
+      <div class="label">
+        <span class="label-text">Task Priority</span>
+      </div>
+      <select class="select select-bordered w-full max-w-xs" [appPriorityHighlight]="priorityOptions" formControlName="taskPriority" required>
+        <option *ngFor="let priority of priorityOptions" [value]="priority.value">{{ priority.label }}</option>
+      </select>
+    </label>
+
+  </form>
+</div>
