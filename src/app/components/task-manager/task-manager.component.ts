@@ -6,11 +6,10 @@ import { PRIORITY_OPTIONS } from './form-values';
 import { PriorityHighlightDirective } from './directives/priority-highlight/priority-highlight.directive';
 
 @Component({
-  selector: 'app-task-manager',
-  standalone: true,
-  imports: [ReactiveFormsModule, NgIf, NgFor, PriorityHighlightDirective],
-  templateUrl: './task-manager.component.html',
-  styleUrl: './task-manager.component.scss'
+    selector: 'app-task-manager',
+    imports: [ReactiveFormsModule, NgIf, NgFor, PriorityHighlightDirective],
+    templateUrl: './task-manager.component.html',
+    styleUrl: './task-manager.component.scss'
 })
 export class TaskManagerComponent {
   taskManagerForm: FormGroup;

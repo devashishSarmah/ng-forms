@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-sub-tasks',
-  standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './sub-tasks.component.html',
   styleUrl: './sub-tasks.component.scss'
 })
