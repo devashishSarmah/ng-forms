@@ -5,9 +5,13 @@ import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } fr
 import { PRIORITY_OPTIONS } from './form-values';
 import { PriorityHighlightDirective } from './directives/priority-highlight/priority-highlight.directive';
 
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+
 @Component({
     selector: 'app-task-manager',
-    imports: [ReactiveFormsModule, NgIf, NgFor, PriorityHighlightDirective],
+    imports: [ReactiveFormsModule, NgIf, NgFor, PriorityHighlightDirective, MatInputModule, MatFormFieldModule, MatSelectModule],
     templateUrl: './task-manager.component.html',
     styleUrl: './task-manager.component.scss'
 })

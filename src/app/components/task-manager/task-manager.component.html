@@ -1,23 +1,20 @@
 <div class="container mx-auto px-4 py-4">
-  <form [formGroup]="taskManagerForm">
-    <label class="form-control w-full max-w-xs" *ngIf="taskManagerForm.controls['taskTitle'] as taskTitle">
-      <div class="label">
-        <span class="label-text">Task Title</span>
-      </div>
-      <input type="text" placeholder="Enter task title" class="input input-bordered w-full max-w-xs" formControlName="taskTitle" maxlength="50" required />
-      <div class="label">
-        <span class="label-text-alt">{{ taskTitle.value.length }}/50 Characters</span>
-        <span class="label-text-alt text-rose-600" *ngIf="taskTitle.errors?.['required'] && taskTitle.touched">Task title is required</span>
-        <span class="label-text-alt text-rose-600" *ngIf="taskTitle.errors?.['maxlength'] && taskTitle.dirty">Max character length exceeded</span>
-      </div>
-    </label>
-    <label class="form-control w-full max-w-xs mt-4">
-      <div class="label">
-        <span class="label-text">Task Priority</span>
-      </div>
-      <select class="select select-bordered w-full max-w-xs" [appPriorityHighlight]="priorityOptions" formControlName="taskPriority" required>
-        <option *ngFor="let priority of priorityOptions" [value]="priority.value">{{ priority.label }}</option>
-      </select>
-    </label>
+  <form [formGroup]="taskManagerForm" class="flex flex-col gap-4 max-w-md">
+    <mat-form-field *ngIf="taskManagerForm.controls['taskTitle'] as taskTitle">
+      <mat-label>Task Title</mat-label>
+      <input type="text" class="input input-bordered w-full max-w-xs" matInput required formControlName="taskTitle" maxlength="50" placeholder="Enter task title">
+      <mat-hint align="start" class="text-sm">{{ taskTitle.value.length }}/50 Characters</mat-hint>
+      @if(taskTitle.hasError('required') && taskTitle.touched) {
+        <mat-error class="text-sm text-rose-600">Task title is required</mat-error>
+      } @else if(taskTitle.hasError('maxlength') && taskTitle.dirty) {
+        <mat-error class="text-sm text-rose-600">Max character length exceeded</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Task Priority</mat-label>
+      <mat-select [appPriorityHighlight]="priorityOptions" formControlName="taskPriority" required>
+        <mat-option *ngFor="let priority of priorityOptions" [value]="priority.value">{{ priority.label }}</mat-option>
+      </mat-select>
+    </mat-form-field>
   </form>
 </div>
