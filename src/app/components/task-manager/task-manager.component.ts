@@ -8,10 +8,11 @@ import { PriorityHighlightDirective } from './directives/priority-highlight/prio
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { SubTasksComponent } from './components/sub-tasks/sub-tasks.component';
 
 @Component({
     selector: 'app-task-manager',
-    imports: [ReactiveFormsModule, NgIf, NgFor, PriorityHighlightDirective, MatInputModule, MatFormFieldModule, MatSelectModule],
+    imports: [ReactiveFormsModule, NgIf, NgFor, PriorityHighlightDirective, MatInputModule, MatFormFieldModule, MatSelectModule, SubTasksComponent],
     templateUrl: './task-manager.component.html',
     styleUrl: './task-manager.component.scss'
 })
